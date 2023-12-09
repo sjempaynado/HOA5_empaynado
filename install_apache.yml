@@ -9,12 +9,12 @@
     when: ansible_distribution == "Ubuntu"
 
   - name: update repository index
-    apt:
+    dnf:
       update_cache: yes
     when: ansible_distribution == "CentOS"
   
   - name: install apache and php packages
-    apt:
+    package:
       name:
         - "{{ apache_package }}"
         - "{{ php_package }}"
